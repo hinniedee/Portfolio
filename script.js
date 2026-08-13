@@ -186,7 +186,7 @@ if (timelineScroll) {
 // password in this file. Fine for keeping casual visitors and
 // search engines out; not fine for anything genuinely sensitive.
 // ============================
-const SITE_PASSWORD = 'ilovekiki'; // <-- set your real password here
+const SITE_PASSWORD = '69f4a35679c3c12745633235f9dc5834ec7bd9bd1f615b826fe85913c567a98d'; // <-- set your real password here
 
 const siteGate = document.getElementById('site-gate');
 const siteContent = document.getElementById('site-content');
