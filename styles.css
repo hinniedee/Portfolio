@@ -83,6 +83,31 @@ body{
 }
 
 /* ============================
+   PASSWORD
+   ============================ */
+
+.site-gate{
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.site-gate-box{
+  max-width: 340px;
+  text-align: center;
+}
+#site-content{
+  display: none;
+}
+#site-content.is-unlocked{
+  display: block;
+}
+
+/* ============================
    HEADER / NAV
    ============================ */
 .site-header{
