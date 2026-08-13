@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hinna - Data & Product</title>
+<meta name="description" content="Portfolio of Hinna - data analyst and product-minded builder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="site-header">
+  <a href="#top" class="wordmark">Hinna</a>
+  <nav class="site-nav">
+    <a href="#work">Work</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#crafts">Hobbies</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero reveal">
+  <p class="eyebrow">// data analyst · product manager</p>
+  <h1 class="identity">
+    Hi, I'm Hinna. I turn 
+    <span class="ink-underline">data into ideas,</span>
+    and 
+    <span class="ink-underline">ideas into products.</span>
+  </h1>
+  <p class="hero-sub">
+    I've been working for over five years across data, product, and everything in between. 
+    I've worked across a genuinely wide range of industries and problems throughout my career. 
+    I love solving problems, I'm logical and creative, and an idea machine!
+  </p>
+</section>
+
+<!-- QUADRANT (signature element) — now its own labeled section -->
+<section id="map" class="section quadrant-section">
+  <p class="eyebrow reveal">// roughly where things land</p>
+  <h2 class="section-title reveal">My work doesn't fit in a box, so I made four.</h2>
+
+  <div class="quadrant-wrap reveal">
+    <svg id="quadrant" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Quadrant chart plotting projects from data to product, and builder to advisor. Click a star for details.">
+      <!-- axis lines -->
+      <line x1="500" y1="30" x2="500" y2="470" class="axis-line"/>
+      <line x1="30" y1="250" x2="970" y2="250" class="axis-line"/>
+      <!-- axis labels, offset clear of the lines -->
+      <text x="500" y="18" text-anchor="middle" class="axis-label">BUILDER</text>
+      <text x="500" y="492" text-anchor="middle" class="axis-label">ADVISOR</text>
+      <text x="16" y="240" text-anchor="start" class="axis-label">DATA</text>
+      <text x="984" y="240" text-anchor="end" class="axis-label">PRODUCT</text>
+
+      <!-- star markers: cx/cy in a 1000x500 viewBox, colour matches its work-section category -->
+      <g class="star-group" tabindex="0" data-category="product" data-title="HealthQo" data-blurb="Founded HealthQo, an SMS-based AI mental health service for underserved communities during COVID-19 - MIT hackathon winner." data-tag="Builder · Product" data-cx="760" data-cy="90">
+        <ellipse class="highlight-mark" cx="760" cy="90" rx="22" ry="14"/>
+        <use href="#hand-star" x="760" y="90" class="star" style="--star-rot:-14deg; transform-origin:760px 90px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="product" data-title="Show Up" data-blurb="A personal operating system for hard days designed for cognitive overload, not just productivity." data-tag="Builder · Product" data-cx="880" data-cy="50">
+        <ellipse class="highlight-mark" cx="880" cy="50" rx="22" ry="14"/>
+        <use href="#hand-star" x="880" y="50" class="star" style="--star-rot:9deg; transform-origin:880px 50px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="data" data-title="Capgemini NHS Hackathon 2024 Winner" data-blurb="Winning solution - predictive models and AI-driven sentiment analysis for NHS staffing and retention." data-tag="Builder · Data" data-cx="270" data-cy="165">
+        <ellipse class="highlight-mark" cx="270" cy="165" rx="22" ry="14"/>
+        <use href="#hand-star" x="270" y="165" class="star" style="--star-rot:9deg; transform-origin:270px 165px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="data" data-title="£1M Data Modernisation Programme - Global Bank" data-blurb="Scrum Master & Product Owner leading 20+ developers, impacting 20M+ users on financial digital products." data-tag="Advisor · Data" data-cx="500" data-cy="330">
+        <ellipse class="highlight-mark" cx="500" cy="330" rx="22" ry="14"/>
+        <use href="#hand-star" x="500" y="330" class="star" style="--star-rot:17deg; transform-origin:500px 330px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="product" data-title="Audience Segmentation App" data-blurb="Led on build, delivery, and adoption to enable precise targeting across 15+ markets." data-tag="Advisor · Product" data-cx="740" data-cy="355">
+        <ellipse class="highlight-mark" cx="740" cy="355" rx="22" ry="14"/>
+        <use href="#hand-star" x="740" y="355" class="star" style="--star-rot:2deg; transform-origin:740px 355px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="data" data-title="Requirements Automation - Big Pharma" data-blurb="Cut a 4-month process to 3 weeks. Built independently, sold as new consultancy revenue." data-tag="Builder · Data" data-cx="415" data-cy="215">
+        <ellipse class="highlight-mark" cx="415" cy="215" rx="22" ry="14"/>
+        <use href="#hand-star" x="415" y="215" class="star" style="--star-rot:5deg; transform-origin:415px 215px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="data" data-title="Econometric Modelling - Luxury Vehicle Manufacturer" data-blurb="Cross-market econometric modelling across multiple markets and model lines to guide media investment." data-tag="Advisor · Data" data-cx="70" data-cy="280">
+        <ellipse class="highlight-mark" cx="70" cy="280" rx="22" ry="14"/>
+        <use href="#hand-star" x="70" y="280" class="star" style="--star-rot:8deg; transform-origin:70px 280px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="data" data-title="Operational Data Platform - UK Gov Agency" data-blurb="Owned and built the business case for a national data store. " data-tag="Advisor · Data" data-cx="160" data-cy="410">
+        <ellipse class="highlight-mark" cx="160" cy="410" rx="22" ry="14"/>
+        <use href="#hand-star" x="160" y="410" class="star" style="--star-rot:10deg; transform-origin:160px 410px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="data" data-title="Trade Promotion Optimisation Tool" data-blurb="Developed a dynamic promotional-effectiveness dashboard in Python and Streamlit for scenario analysis." data-tag="Builder · Data" data-cx="120" data-cy="80">
+        <ellipse class="highlight-mark" cx="120" cy="80" rx="22" ry="14"/>
+        <use href="#hand-star" x="120" y="80" class="star" style="--star-rot:-13deg; transform-origin:120px 80px;"/>
+      </g>
+      <g class="star-group" tabindex="0" data-category="product" data-title="Enterprise AI Platform for the NHS" data-blurb="Supported an enterprise AI Platform (costing tool) build, including validating use cases for the NHS Solutions Exchange." data-tag="Advisor · Product" data-cx="610" data-cy="420">
+        <ellipse class="highlight-mark" cx="610" cy="420" rx="22" ry="14"/>
+        <use href="#hand-star" x="610" y="420" class="star" style="--star-rot:-19deg; transform-origin:610px 420px;"/>
+      </g>
+       <g class="star-group" tabindex="0" data-category="product" data-title="Experimentation Programme Redesign" data-blurb="End-to-end redesign at Zava - discovery, statistical playbook, governance automation and org-wide training." data-tag="Advisor · Product" data-cx="700" data-cy="530">
+        <ellipse class="highlight-mark" cx="700" cy="530" rx="22" ry="14"/>
+        <use href="#hand-star" x="700" y="530" class="star" style="--star-rot:14deg; transform-origin:700px 530px;"/>
+      </g>
+       <g class="star-group" tabindex="0" data-category="product" data-title="Book Club App" data-blurb="Social digital book club app with private clubs, chapter-gated chat, and public discovery of reading communities." data-tag="Builder · Product" data-cx="820" data-cy="155">
+        <ellipse class="highlight-mark" cx="820" cy="155" rx="22" ry="14"/>
+        <use href="#hand-star" x="820" y="155" class="star" style="--star-rot:17deg; transform-origin:820px 155px;"/>
+      </g>
+      
+      <!-- reusable hand-drawn asterisk: crossing strokes, not a filled star shape -->
+      <defs>
+        <g id="hand-star">
+          <path class="star-path" d="M0,-19 Q2,-9 0,19"/>
+          <path class="star-path" d="M-19,1 Q-8,-1 19,-1"/>
+          <path class="star-path" d="M-14,-15 Q-5,-6 15,14"/>
+          <path class="star-path" d="M-15,14 Q-6,5 14,-15"/>
+        </g>
+      </defs>
+    </svg>
+    <div id="tooltip" class="tooltip" hidden>
+      <p class="tooltip-tag"></p>
+      <p class="tooltip-title"></p>
+      <p class="tooltip-blurb"></p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK (merged: professional + personal projects) -->
+<section id="work" class="section">
+  <p class="eyebrow reveal">// selected work</p>
+  <h2 class="section-title reveal">What I've solved and shipped.</h2>
+
+  <div class="filters reveal">
+    <button class="filter-btn is-active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="data">Data</button>
+    <button class="filter-btn" data-filter="product">Product</button>
+  </div>
+
+  <div class="card-grid" id="work-grid">
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>HealthQo: An SMS-Based Mental Health Service for Underserved Communities</h3>
+      <p class="card-summary">COVID-19 worsened mental health outcomes across South Asia. Founded HealthQo, an SMS-based AI service needing no app or internet - MIT hackathon winner, incubated at MIT Node.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="data">
+      <p class="note-tape tape-data" aria-hidden="true"></p>
+      <h3>Led a £1M Data Modernisation Programme for a Global Bank</h3>
+      <p class="card-summary">Led a cross-functional team as Scrum Master and Product Owner across discovery, roadmap and delivery of two data products in a highly regulated financial-services environment, impacting 20M+ users.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="data">
+      <p class="note-tape tape-data" aria-hidden="true"></p>
+      <h3>Automated a Four-Month Process Down to Three Weeks</h3>
+      <p class="card-summary">Independently built a data requirements automation solution for a Big Pharma client - an 85% time reduction that turned into new consultancy revenue.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="data">
+      <p class="note-tape tape-data" aria-hidden="true"></p>
+      <h3>Redesigned an Experimentation Programme End-to-End</h3>
+      <p class="card-summary">A ground-up redesign - discovery, statistical playbook, governance automation, and org-wide training. Became the primary internal expert, turning testing into a trusted ship/iterate/stop standard. </p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>Led Delivery of a Global Audience Segmentation Tool</h3>
+      <p class="card-summary">Led build, delivery and adoption to enable precise targeting across 15+ markets - running workshops, managing user testing, and delivering feature builds, user stories and technical docs for every release.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>Commercialising an Enterprise AI Platform for the NHS</h3>
+      <p class="card-summary">Supported an enterprise AI platform build with a major data and AI provider and NHS Solutions Exchange use-case validation, ran workshops to shape an AI costing tool, and crafted its business materials - moving it into commercial NHS conversations.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="data">
+      <p class="note-tape tape-data" aria-hidden="true"></p>
+      <h3>Cross-Market Econometric Modelling for a Global Vehicle Manufacturer</h3>
+      <p class="card-summary">Pre-processed data, ran QA/KPI validation, and built base econometric models across multiple markets and vehicle lines - giving the client validated models to guide media investment with confidence.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="data">
+      <p class="note-tape tape-data" aria-hidden="true"></p>
+      <h3>Building a Dashboard to Optimise Trade Promotion ROI</h3>
+      <p class="card-summary">Built features for a dynamic Python/Streamlit dashboard analysing promotional effectiveness, and running scenario analyses to inform ROI decisions.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="data">
+      <p class="note-tape tape-data" aria-hidden="true"></p>
+      <h3>Building the Business Case for a National Data Store</h3>
+      <p class="card-summary">Owned the business case for a national data store- 20+ stakeholder interviews, current-state systems analysis, and director-only workshops. Secured executive buy-in and VP-level recognition.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>Show Up: A Personal Operating System for Hard Days</h3>
+      <p class="origin-note">personal project</p>
+      <p class="card-summary">A personal iOS app in React Native/Expo, built solo around two adaptive modes - Hard Day and Good Day - designed for cognitive overload, not just productivity.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>Designing a Discussion-First Digital Book Club</h3>
+      <p class="origin-note">personal project</p>
+      <p class="card-summary">Designing a social reading app with private clubs, chapter-gated chat, and a way to discover niche reading communities worldwide.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>Teaching a Robot to Coach Interview Skills</h3>
+      <p class="card-summary">Programmed SoftBank's Pepper with speech and emotion recognition to simulate interview practice, giving real-time feedback on tone, pace and filler words.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>Augmented Reality for Inclusive, Everyday Learning Materials</h3>
+      <p class="card-summary">Designed an AR concept using ARKit and RealityKit to make therapeutic and learning materials more engaging and adaptive for differently-abled children.</p>
+    </article>
+
+    <article class="project-card reveal" data-category="product">
+      <p class="note-tape tape-product" aria-hidden="true"></p>
+      <h3>A Grocery-Sharing App Designed to Cut Food Waste</h3>
+      <p class="card-summary">Designed a grocery-sharing and budgeting app tackling food waste through portion flexibility and community-driven sharing, validated through user testing.</p>
+    </article>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="section timeline-section">
+  <p class="eyebrow reveal">// how I got here</p>
+  <h2 class="section-title reveal">The scenic route, mostly on purpose.</h2>
+  <p class="timeline-hint reveal">Scroll sideways →</p>
+
+  <div class="timeline-scroll" id="timeline-scroll">
+    <div class="timeline-track">
+      <div class="timeline-spacer" aria-hidden="true"></div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2019 <span class="kind-badge">project</span></p>
+        <h3>AR Educational Materials</h3>
+        <p>AR prototype augmenting paper-based learning materials for differently-abled children.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2019 <span class="kind-badge">project</span></p>
+        <h3>Grosharies: Gorcery Sharing Sustainability</h3>
+        <p>Interactive sustainability app addressing food waste through portion and grocery sharing.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2019 <span class="kind-badge">project</span></p>
+        <h3>Interview Robot (Pepper)</h3>
+        <p>Human-robot interaction project: Pepper robot programmed for interview-skills coaching.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2020 <span class="kind-badge">project</span></p>
+        <h3>HealthQo</h3>
+        <p>Founded an SMS based AI mental health triage service for underserved communities during COVID-19; MIT hackathon winner.</p>
+      </div>
+      <div class="timeline-item" data-kind="job">
+        <p class="timeline-date">2021 – 2023 <span class="kind-badge">job</span></p>
+        <h3>Advanced Analytics & BI Analyst, Mindshare</h3>
+        <p>Econometric modelling and insight strategy across global clients.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2022 <span class="kind-badge">project</span></p>
+        <h3>Econometric Modeling - Luxury Vehicle Manufacturer</h3>
+        <p>Cross-market econometric modelling for a global luxury vehicle manufacturer's media investment strategy.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2022 <span class="kind-badge">project</span></p>
+        <h3>PAC 2022 at Oxford University</h3>
+        <p>Selected for PAC 2022, an internationally regarded media training course at Oxford University.</p>
+      </div>
+      <div class="timeline-item" data-kind="job">
+        <p class="timeline-date">2023 - 2025 <span class="kind-badge">job</span></p>
+        <h3>Data & AI Consultant, Capgemini</h3>
+        <p>Client engagements spanning financial services, healthcare, pharma and FMCG.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2023 <span class="kind-badge">project</span></p>
+        <h3>Audience Creation Tool - FMCG Client</h3>
+        <p>Worked on an audience segmentation tool - building and driving adoption across 15+ markets.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2024 <span class="kind-badge">project</span></p>
+        <h3>Operational Data Platform - UK Gov Agency</h3>
+        <p>Led business case for a UK government national data store.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2024 <span class="kind-badge">project</span></p>
+        <h3>Capgemini NHS Hackathon Winner</h3>
+        <p>Winning healthcare hackathon - predictive models and AI sentiment dashboard for NHS staffind and retention.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2024 <span class="kind-badge">project</span></p>
+        <h3>Data Modernisation Programme - Global Bank</h3>
+        <p>Scrum Master & Product Owner on £1M data modernisation programme, 20+ developers & 20M+ users of 2 digital apps impacted.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2024 <span class="kind-badge">project</span></p>
+        <h3>Trade Promotion Optimisation Tool</h3>
+        <p>Developed a promotion optimisation dashboard (Python, Streamlit) with scenario analyses.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2024 <span class="kind-badge">project</span></p>
+        <h3>Enterprise AI Platform for NHS</h3>
+        <p>Supported in enterprise AI platform build and NHS Solutions Exchnage use case validation.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2025 <span class="kind-badge">project</span></p>
+        <h3>Data Requirements Automation Solution - Big Pharma Client</h3>
+        <p>Independently built a data requirements automation solution resulting in 85% reduction in process time.</p>
+      </div>
+      <div class="timeline-item" data-kind="job">
+        <p class="timeline-date">2025 - Present <span class="kind-badge">job</span></p>
+        <h3>Product Data Analyst, Zava</h3>
+        <p>Retention, conversion and experimentation analytics ownership.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2026 <span class="kind-badge">project</span></p>
+        <h3>Experimentation Programme Redesign</h3>
+        <p>End-to-end redesign of Zava's experimentation programme - statistical playbook, governance automation, and org-wide training.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2026 <span class="kind-badge">project</span></p>
+        <h3>Show Up</h3>
+        <p>Persional iOS productivity app built around hard-day cognitive load, not conventional productivity.</p>
+      </div>
+      <div class="timeline-item" data-kind="project">
+        <p class="timeline-date">2026 <span class="kind-badge">project</span></p>
+        <h3>Book Club App</h3>
+        <p>Designing a social/digital book club app - private clubs, chapter-gated chat, and discovery of reading communities.</p>
+      </div>
+      <div class="timeline-spacer" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTS & CRAFTS -->
+<section id="crafts" class="section">
+  <p class="eyebrow reveal">// just for fun</p>
+  <h2 class="section-title reveal">Where I let go off the clock.</h2>
+
+  <div class="card-grid personal-grid">
+    <article class="craft-card reveal">
+      <p class="tape" aria-hidden="true"></p>
+      <img src="img1.png" alt="Description of the photo" class="craft-photo">
+      <h3>Crocheted a Cuddly Cat Toy</h3>
+      <p class="craft-caption">Crocheted a soup belly cuddly cat for a gift.</p>
+      <p>This doesn't look anything at all like the inspiration and I had to restart it 3 times, but I still love it.</p>
+    </article>
+    <article class="craft-card reveal">
+      <p class="tape" aria-hidden="true"></p>
+      <img src="img2.png" alt="Description of the photo" class="craft-photo">
+      <h3>Pottery Course</h3>
+      <p class="craft-caption">A number of pottery dishes made across a month.</p>
+      <p>I went in with high expectations, and this was surprisngly more stressful than calming ... the only thing being used actively is the bowl.</p>
+    </article>
+    <article class="craft-card reveal">
+      <p class="tape" aria-hidden="true"></p>
+      <img src="img3.png" alt="Description of the photo" class="craft-photo">
+      <h3>Crocheted Baby Blanket</h3>
+      <p class="craft-caption">First completed crochet project for my expecting friend.</p>
+      <p>Believe it or not, the full pattern requires 16 of these squares ... I stopped at 1.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section about-section">
+  <div class="about-grid">
+    <div class="about-copy reveal">
+      <p class="eyebrow">// about me</p>
+      <h2 class="section-title">If you're curious about the person behind all this</h2>
+      <p class="sticky-note-inline">I was born and raised in Hong Kong, and have made my home in London since. 
+        I'm a city girl who's completely in love with mountains and beaches. 
+        If I'm interested in something, I will just go and try it, and I'll try it at least twice! 
+        I taught myself to code Tumblr blog templates and edit in Photoshop, and more recently it's been various dance classes. 
+        I've got an imaginative brain and don't impose limits on myself. The world truly is your oyster. 
+        I've been an avid reader, love arts & crafts, want to travel as much as I can and have a massive cat!</p>
+    </div>
+    <div class="about-photo reveal">
+      <div class="scrapbook">
+        <div class="photo-frame frame-1"><img src="img7.png" alt="Me and my cat" style="width:100%;height:100%;object-fit:cover;"></p></div>
+        <div class="photo-frame frame-2"><img src="img4.png" alt="NYC, Statue of Liberty" style="width:100%;height:100%;object-fit:cover;"></p></div>
+        <div class="photo-frame frame-3"><img src="img5.png" alt="Hiking in Hong Kong" style="width:100%;height:100%;object-fit:cover;"></p></div>
+        <div class="photo-frame frame-4"><img src="img6.png" alt="Hiking in Wales" style="width:100%;height:100%;object-fit:cover;"></p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer reveal">
+  <p>Well, you made it to the bottom of the page.</p>
+  <p class="footer-links">
+    <a href="mailto:hinna.dev@gmail.com">Email</a> ·
+    <a href="https://www.linkedin.com/in/hinna-hussain">LinkedIn</a> ·
+  </p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

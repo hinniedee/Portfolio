@@ -1,0 +1,568 @@
+/* ============================
+   TOKENS
+   ============================ */
+:root{
+  --paper: #FEFDFB;
+  --paper-raised: #FFFFFF;
+  --ink: #1E2320;
+  --ink-soft: #4A5049;
+  --rule: #E7E4DA;
+  --rule-strong: #D2CDBF;
+
+  --yellow: #F4D35E;
+  --red: #C0392B;
+
+  --tag-data: rgba(122, 160, 200, 0.65);
+  --tag-product: rgba(154, 194, 168, 0.65);
+  --tag-craft: rgba(232, 163, 190, 0.65);
+
+  --font-display: "Newsreader", Georgia, serif;
+  --font-body: "IBM Plex Sans", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-hand: "Caveat", cursive;
+
+  --max-w: 1000px;
+  --space-section: clamp(64px, 10vw, 128px);
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ============================
+   GRID BACKGROUND
+   ============================ */
+.grid-bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule) 1px, transparent 1px);
+  background-size: 96px 96px;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 20%, black 40%, transparent 90%);
+}
+
+/* ============================
+   LAYOUT HELPERS
+   ============================ */
+.section, .hero{
+  position: relative;
+  z-index: 1;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--space-section) 24px;
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.section-title{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.25;
+  margin: 0 0 40px;
+  max-width: 24ch;
+}
+
+/* ============================
+   HEADER / NAV
+   ============================ */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: rgba(254,253,251,0.88);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.wordmark{
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-nav{ display: flex; gap: 28px; }
+.site-nav a{
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  transition: color 0.15s ease;
+}
+.site-nav a:hover, .site-nav a:focus-visible{ color: var(--red); }
+.site-nav a.is-active{
+  color: var(--ink);
+  font-weight: 600;
+  background-image: linear-gradient(transparent 65%, var(--yellow) 65%);
+  background-repeat: no-repeat;
+}
+
+/* ============================
+   HERO
+   ============================ */
+.hero{
+  padding-top: clamp(56px, 8vw, 96px);
+  padding-bottom: 40px;
+}
+.identity{
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5.5vw, 52px);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 16ch;
+  margin: 0 0 20px;
+}
+.ink-underline{
+  background-image: linear-gradient(transparent 60%, var(--yellow) 60%);
+  background-repeat: no-repeat;
+}
+.hero-sub{
+  max-width: 56ch;
+  color: var(--ink-soft);
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Sticky note style handwriting text, used sparingly */
+.sticky-note-inline{
+  font-family: var(--font-hand);
+  font-size: 22px;
+  color: var(--red);
+  display: block;
+  margin-top: 20px;
+  transform: rotate(-1deg);
+}
+
+/* ============================
+   QUADRANT — its own section, full width, rectangular
+   ============================ */
+.quadrant-section{ padding-top: 24px; }
+.quadrant-wrap{
+  position: relative;
+  width: 100%;
+}
+#quadrant{ width: 100%; height: auto; display: block; }
+.axis-line{ stroke: var(--rule-strong); stroke-width: 1.5; }
+.axis-label{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  fill: var(--ink-soft);
+  letter-spacing: 0.1em;
+}
+
+.star-group{ cursor: pointer; outline: none; }
+.star-path{
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+.star{
+  /* transform-origin is set inline per-star (in the SVG's own coordinate
+     units) rather than via fill-box, which recalculates from rendered
+     geometry and was causing the hover shake. A fixed point can't drift. */
+  transform: rotate(var(--star-rot, 0deg));
+  transition: transform 0.18s ease, filter 0.18s ease;
+}
+.star-group:hover .star,
+.star-group:focus-visible .star{
+  transform: rotate(var(--star-rot, 0deg)) scale(1.15);
+}
+.star-group.is-active .star{
+  transform: rotate(var(--star-rot, 0deg)) scale(1.2);
+}
+.star-group.is-active .star-path{ stroke-width: 4.5; }
+
+/* Flat highlighter mark behind the star — deliberately has NO transform of
+   any kind (no rotation, no scale-on-hover), just cx/cy/rx/ry, so there is
+   nothing that can throw its registration off relative to the star. */
+.highlight-mark{
+  fill: var(--yellow);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.star-group.is-active .highlight-mark{ opacity: 0.6; }
+
+.tooltip{
+  position: absolute;
+  width: 230px;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  padding: 14px 16px;
+  box-shadow: 4px 4px 0 var(--rule);
+  z-index: 5;
+}
+.tooltip-tag{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--red);
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.tooltip-title{
+  font-family: var(--font-display);
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+.tooltip-blurb{
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+@media (max-width: 640px){
+  .tooltip{ position: static; width: auto; margin-top: 16px; box-shadow: none; }
+}
+
+/* ============================
+   FILTERS
+   ============================ */
+.filters{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.filter-btn{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  transition: all 0.15s ease;
+}
+.filter-btn:hover{ border-color: var(--red); color: var(--red); }
+.filter-btn.is-active{
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ============================
+   CARDS (selected work, merged)
+   ============================ */
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.project-card{
+  position: relative;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 32px 28px 28px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.project-card:hover{
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 12px 24px -12px rgba(30,35,32,0.25);
+}
+.project-card.is-hidden{ display: none; }
+
+/* Shared sizing for both work-section tags and craft-section tape, but
+   rotation differs: project-cards sit perfectly straight, so their tag
+   sits flush too. Craft-cards are already tilted, so their tape keeps a
+   matching tilt rather than looking like a separate, disconnected layer. */
+.note-tape, .tape{
+  position: absolute;
+  top: -9px;
+  width: 56px;
+  height: 18px;
+  margin: 0; /* <p> has a ~1em default margin in every browser; without resetting
+                it, that margin stacks on top of "top: -9px" and throws the tag
+                off — this is what was actually misaligning the work-section
+                tags (the craft section's tape only "worked" by accident,
+                because .craft-card p{margin:0} happened to catch it too) */
+  border-radius: 1px;
+  box-shadow: 1px 2px 0 rgba(0,0,0,0.06);
+  z-index: 2;
+}
+.note-tape{ left: 28px; } /* matches .project-card's own left padding, no rotation — card itself is unrotated */
+.tape{ left: 26px; transform: rotate(-2deg); } /* matches .craft-card's own left padding and base tilt */
+.tape-data{ background: var(--tag-data); }
+.tape-product{ background: var(--tag-product); }
+.tape{ background: var(--tag-craft); }
+
+.origin-note{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: -6px 0 14px;
+}
+
+.project-card h3{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.35;
+  margin: 8px 0 12px;
+}
+.card-summary{
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0 0 20px;
+}
+.card-actions{ display: flex; gap: 18px; flex-wrap: wrap; }
+.btn-text{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+.btn-text:hover{ color: var(--red); border-color: var(--red); }
+.btn-muted{ color: var(--ink-soft); border-color: var(--rule-strong); }
+
+/* ============================
+   ARTS & CRAFTS — playful, taped index-card feel
+   ============================ */
+.personal-grid{ margin-top: 8px; }
+.craft-card{
+  position: relative;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  padding: 26px;
+  transform: rotate(-0.6deg);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.craft-photo{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 10px 0 16px;
+}
+.craft-card p.craft-caption{ font-family: var(--font-display); font-size: 15px; color: var(--ink-soft); margin: 0px; }
+  
+.personal-grid .craft-card:nth-child(2){ transform: rotate(0.8deg); }
+.personal-grid .craft-card:nth-child(3){ transform: rotate(-0.9deg); }
+.craft-card:hover{
+  transform: rotate(0deg) scale(1.03);
+  box-shadow: 0 12px 24px -12px rgba(30,35,32,0.25);
+}
+.craft-card h3{ font-family: var(--font-display); font-size: 19px; margin: 6px 0 10px; }
+.craft-card p:not(.tape):not(.craft-caption){ 
+  font-family: var(--font-hand);
+  font-size: 16px;
+  color: var(--red);
+  margin: 8px 0 8px;
+}
+
+/* ============================
+   TIMELINE — horizontal, scroll-focus
+   ============================ */
+.timeline-hint{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: -20px;
+}
+.timeline-scroll{
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  padding: 40px 0 24px;
+  -webkit-overflow-scrolling: touch;
+}
+.timeline-track{
+  display: flex;
+  gap: 32px;
+}
+.timeline-spacer{
+  flex: 0 0 auto;
+  /* width set in JS to (container width - item width) / 2, as an actual
+     flex item rather than container padding — sidesteps whatever was
+     causing padding-left and padding-right to behave asymmetrically */
+}
+.timeline-item{
+  flex: 0 0 260px;
+  scroll-snap-align: center;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 24px;
+  opacity: 0.4;
+  transform: scale(0.88);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.timeline-item.is-focused{
+  opacity: 1;
+  transform: scale(1.06);
+  box-shadow: 0 10px 22px -12px rgba(30,35,32,0.3);
+}
+.kind-badge{
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule-strong);
+  border-radius: 10px;
+  padding: 2px 8px;
+  margin-left: 8px;
+}
+.timeline-item[data-kind="project"] .kind-badge{ border-color: var(--yellow); color: #8a6d1f; }
+.timeline-date{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+}
+.timeline-item h3{
+  font-family: var(--font-display);
+  font-size: 19px;
+  margin: 6px 0 8px;
+}
+.timeline-item p{ margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+/* ============================
+   ABOUT — scrapbook, more breathing room
+   ============================ */
+.about-grid{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 720px){ .about-grid{ grid-template-columns: 1fr; } }
+.about-copy p:not(.sticky-note-inline){ color: var(--ink-soft); }
+
+.scrapbook{
+  position: relative;
+  height: 600px;
+  margin-top: 70px;
+}
+.photo-frame{
+  position: absolute;
+  background: var(--paper-raised);
+  border: 6px solid #fff;
+  outline: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 3px 5px 10px rgba(0,0,0,0.12);
+}
+.frame-1{ width: 50%; aspect-ratio: 4/5; top: -3%; left: 0; transform: rotate(-4deg); z-index: 3; }
+.frame-2{ width: 48%; aspect-ratio: 4/5; top: -2%; right: 2%; transform: rotate(5deg); z-index: 4; }
+.frame-3{ width: 64%; aspect-ratio: 3/2; top: 36%; left: -4%; transform: rotate(-3deg); z-index: 1; }
+.frame-4{ width: 62%; aspect-ratio: 3/2; top: 37%; bottom: auto; right: -19%; transform: rotate(2deg); z-index: 2; }
+.photo-caption{
+  font-family: var(--font-hand);
+  font-size: 16px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+/* ============================
+   VAULT
+   ============================ */
+.vault-section{
+  background: var(--paper-raised);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.vault-intro{ color: var(--ink-soft); max-width: 56ch; }
+.vault-form{
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.vault-form label{ display: none; }
+#vault-password{
+  font-family: var(--font-mono);
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  background: var(--paper);
+  min-width: 220px;
+}
+.btn-solid{
+  font-family: var(--font-mono);
+  font-size: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.btn-solid:hover{ background: var(--red); }
+.vault-error{ color: var(--red); font-family: var(--font-mono); font-size: 13px; margin-top: 12px; }
+.vault-content{ margin-top: 32px; }
+
+/* ============================
+   FOOTER
+   ============================ */
+.site-footer{
+  text-align: center;
+  padding: 64px 24px 80px;
+  color: var(--ink-soft);
+}
+.site-footer p:first-child{
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--ink);
+}
+.footer-links a{ color: var(--ink-soft); text-decoration: none; }
+.footer-links a:hover{ color: var(--red); }
+
+/* ============================
+   SCROLL REVEAL
+   ============================ */
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1; transform: none; transition: none; }
+  html{ scroll-behavior: auto; }
+}
+
+/* Focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
