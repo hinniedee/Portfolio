@@ -14,6 +14,20 @@
 
 <div class="grid-bg" aria-hidden="true"></div>
 
+<div id="site-gate" class="site-gate">
+  <div class="site-gate-box">
+    <p class="eyebrow">// enter password</p>
+    <form id="site-gate-form" class="vault-form">
+      <label for="site-gate-password">Password</label>
+      <input type="password" id="site-gate-password" placeholder="•••••••••" autocomplete="off">
+      <button type="submit" class="btn-solid">Unlock</button>
+    </form>
+    <p id="site-gate-error" class="vault-error" hidden>Not quite — try again.</p>
+  </div>
+</div>
+
+<div id="site-content">
+
 <!-- NAV -->
 <header class="site-header">
   <a href="#top" class="wordmark">Hinna</a>
@@ -395,6 +409,9 @@
     <a href="https://www.linkedin.com/in/hinna-hussain">LinkedIn</a> ·
   </p>
 </footer>
+
+</div>
+<script src="script.js"></script>
 
 <script src="script.js"></script>
 </body>
