@@ -186,7 +186,13 @@ if (timelineScroll) {
 // password in this file. Fine for keeping casual visitors and
 // search engines out; not fine for anything genuinely sensitive.
 // ============================
-const SITE_PASSWORD = '69f4a35679c3c12745633235f9dc5834ec7bd9bd1f615b826fe85913c567a98d'; // <-- set your real password here
+
+const siteGate = document.getElementById('site-gate');
+const siteContent = document.getElementById('site-content');
+const siteGateForm = document.getElementById('site-gate-form');
+const siteGateError = document.getElementById('site-gate-error');
+
+const SITE_PASSWORD_HASH = '69f4a35679c3c12745633235f9dc5834ec7bd9bd1f615b826fe85913c567a98d'; // <-- your hash goes here
 
 async function checkPassword(input) {
   const encoder = new TextEncoder();
@@ -196,27 +202,11 @@ async function checkPassword(input) {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('') === SITE_PASSWORD_HASH;
 }
 
-siteGateForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const input = document.getElementById('site-gate-password').value;
-  if (await checkPassword(input)) {
-    siteGate.style.display = 'none';
-    siteContent.classList.add('is-unlocked');
-  } else {
-    siteGateError.hidden = false;
-  }
-});
-
-const siteGate = document.getElementById('site-gate');
-const siteContent = document.getElementById('site-content');
-const siteGateForm = document.getElementById('site-gate-form');
-const siteGateError = document.getElementById('site-gate-error');
-
 if (siteGateForm) {
-  siteGateForm.addEventListener('submit', (e) => {
+  siteGateForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const input = document.getElementById('site-gate-password').value;
-    if (input === SITE_PASSWORD) {
+    if (await checkPassword(input)) {
       siteGate.style.display = 'none';
       siteContent.classList.add('is-unlocked');
     } else {
