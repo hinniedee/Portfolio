@@ -192,7 +192,7 @@ const siteContent = document.getElementById('site-content');
 const siteGateForm = document.getElementById('site-gate-form');
 const siteGateError = document.getElementById('site-gate-error');
 
-const SITE_PASSWORD_HASH = '69f4a35679c3c1274563'; // <-- your hash goes here
+const SITE_PASSWORD_HASH = '69f4a35679c3c12745633235f9dc5834ec7bd9bd1f615b826fe85913c567a98d'; // <-- your hash goes here
 
 async function checkPassword(input) {
   const encoder = new TextEncoder();
