@@ -179,29 +179,29 @@ if (timelineScroll) {
 }
 
 // ============================
-// VAULT PASSWORD GATE
+// PASSWORD GATE
 // ------------------------------------------------------------------
 // IMPORTANT: this is a client-side check only. It is a *deterrent*,
 // not real security — anyone who opens dev tools can read the
 // password in this file. Fine for keeping casual visitors and
 // search engines out; not fine for anything genuinely sensitive.
 // ============================
-const VAULT_PASSWORD = 'changeme'; // <-- set your own password here
+const SITE_PASSWORD = 'ilovekiki'; // <-- set your real password here
 
-const vaultForm = document.getElementById('vault-form');
-const vaultError = document.getElementById('vault-error');
-const vaultContent = document.getElementById('vault-content');
+const siteGate = document.getElementById('site-gate');
+const siteContent = document.getElementById('site-content');
+const siteGateForm = document.getElementById('site-gate-form');
+const siteGateError = document.getElementById('site-gate-error');
 
-if (vaultForm) {
-  vaultForm.addEventListener('submit', (e) => {
+if (siteGateForm) {
+  siteGateForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const input = document.getElementById('vault-password').value;
-    if (input === VAULT_PASSWORD) {
-      vaultError.hidden = true;
-      vaultContent.hidden = false;
-      vaultForm.hidden = true;
+    const input = document.getElementById('site-gate-password').value;
+    if (input === SITE_PASSWORD) {
+      siteGate.style.display = 'none';
+      siteContent.classList.add('is-unlocked');
     } else {
-      vaultError.hidden = false;
+      siteGateError.hidden = false;
     }
   });
 }
